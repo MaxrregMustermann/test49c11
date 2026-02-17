@@ -59,17 +59,18 @@ app.post('/p/*', async (req, res) => {
 });
 
 // Direkte Weiterleitung für Bilder
-app.get('/img/*', async (req, res) => {
-  const targetUrl = `https://fireani.me${req.url}`;
-  try {
-    const response = await fetch(targetUrl);
-    const buffer = await response.arrayBuffer();
-    res.type(response.headers.get('content-type'));
-    res.send(Buffer.from(buffer));
-  } catch (error) {
-    res.status(500).send(error.message);
-  }
-});
+//app.get('/img/*', async (req, res) => {
+  //const targetUrl = `https://fireani.me${req.url}`;
+  //try {
+    //const response = await fetch(targetUrl);
+    //const buffer = await response.arrayBuffer();
+   // res.type(response.headers.get('content-type'));
+  //  res.send(Buffer.from(buffer));
+ // } catch (error) {
+  //  res.status(500).send(error.message);
+ // }
+//});
+
 
 app.listen(port, () => {
   console.log(`Proxy server running on http://localhost:${port}`);
